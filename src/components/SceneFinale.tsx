@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Confetti } from './Confetti';
 import { VirtualCandle } from './VirtualCandle';
-import { VoiceRecorder } from './VoiceRecorder';
+import { PreRecordedAudio } from './PreRecordedAudio';
 
 export type SceneFinaleProps = {
   title: string;
@@ -34,9 +34,8 @@ export function SceneFinale({
       <div className="candle-section" aria-hidden="true">
         <VirtualCandle />
       </div>
-      <div className="voice-section" aria-label="Voice message">
-        <p className="kicker">Record a voice message</p>
-        <VoiceRecorder />
+      <div className="voice-section" aria-label="Voice message from Foster">
+        <PreRecordedAudio />
       </div>
       <div className="button-row finale-actions">
         <button

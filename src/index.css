@@ -225,10 +225,10 @@ html, body {
 /* Envelope */
 .envelope-wrap {
   position: relative;
-  width: 340px;
-  height: 230px;
-  margin: 0 auto 12px;
-  perspective: 1200px;
+  width: 420px;
+  height: 280px;
+  margin: 0 auto 16px;
+  perspective: 1400px;
 }
 
 .envelope {
@@ -328,6 +328,13 @@ html, body {
 .letter-content p {
   white-space: pre-wrap;
   margin: 0 0 16px;
+}
+
+.envelope.opened .letter-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition-delay: 0.4s;
 }
 
 .letter-signature {
@@ -820,8 +827,8 @@ html, body {
     aspect-ratio: 16 / 9;
   }
   .envelope-wrap {
-    width: 280px;
-    height: 185px;
+    width: 340px;
+    height: 230px;
   }
   .envelope.back {
     border-radius: 6px;
@@ -917,11 +924,11 @@ html, body {
 
 @media (max-width: 480px) {
   .stage {
-    padding: 16px 12px 70px;
+    padding: 16px 12px 80px;
   }
   .envelope-wrap {
-    width: 220px;
-    height: 145px;
+    width: 280px;
+    height: 190px;
   }
   .envelope.back {
     border-radius: 6px;

@@ -225,10 +225,10 @@ html, body {
 /* Envelope */
 .envelope-wrap {
   position: relative;
-  width: 260px;
-  height: 170px;
-  margin: 0 auto 10px;
-  perspective: 1000px;
+  width: 340px;
+  height: 230px;
+  margin: 0 auto 12px;
+  perspective: 1200px;
 }
 
 .envelope {
@@ -249,9 +249,19 @@ html, body {
   position: absolute;
   inset: 0;
   background: var(--burgundy);
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: var(--shadow);
   z-index: 2;
+}
+
+.envelope.opened .flap {
+  transform: translateX(-50%) rotateX(180deg);
+}
+
+.envelope.opened .back {
+  transform: translateY(14px);
+  opacity: 0.35;
+  transition: transform 0.5s ease, opacity 0.4s ease;
 }
 
 .flap {
@@ -259,27 +269,27 @@ html, body {
   top: 0;
   left: 50%;
   width: 100%;
-  height: 55%;
+  height: 52%;
   background: var(--rose);
   transform-origin: top center;
   transform: translateX(-50%);
   clip-path: polygon(0 0, 100% 0, 50% 100%, 0 0);
   z-index: 3;
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 12px 24px -8px rgba(36, 32, 32, 0.18);
+  box-shadow: 0 14px 28px -8px rgba(36, 32, 32, 0.18);
 }
 
 .seal {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   background: var(--gold);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
-  box-shadow: 0 6px 12px -4px rgba(36, 32, 32, 0.25);
+  box-shadow: 0 8px 16px -4px rgba(36, 32, 32, 0.25);
 }
 
 .seal::after {
@@ -291,25 +301,15 @@ html, body {
   font-family: var(--serif);
   font-weight: 700;
   color: #2c1a1e;
-  font-size: 1.1rem;
-}
-
-.envelope.opened .flap {
-  transform: translateX(-50%) rotateX(180deg);
-}
-
-.envelope.opened .back {
-  transform: translateY(12px);
-  opacity: 0.35;
-  transition: transform 0.5s ease, opacity 0.4s ease;
+  font-size: 1.4rem;
 }
 
 .letter-content {
   position: absolute;
   inset: 0;
   background: var(--ivory);
-  border-radius: 6px;
-  padding: 24px 20px 20px;
+  border-radius: 8px;
+  padding: 28px 24px 24px;
   box-sizing: border-box;
   z-index: 1;
   opacity: 0;
@@ -317,31 +317,26 @@ html, body {
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease, pointer-events 0.5s ease;
   text-align: left;
-  box-shadow: inset 0 0 20px rgba(36, 32, 32, 0.06);
+  box-shadow: inset 0 0 24px rgba(36, 32, 32, 0.08);
   overflow-y: auto;
   max-height: 100%;
-}
-
-.envelope.opened .letter-content {
-  opacity: 1;
-  pointer-events: auto;
-  transform: none;
-  transition-delay: 0.35s;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #3a2f2f;
 }
 
 .letter-content p {
   white-space: pre-wrap;
-  margin: 0 0 14px;
-  line-height: 1.75;
-  color: #3a2f2f;
+  margin: 0 0 16px;
 }
 
 .letter-signature {
-  margin-top: 6px;
+  margin-top: 10px;
   font-family: var(--serif);
   font-style: italic;
   color: var(--burgundy);
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
 /* Gallery */
@@ -812,7 +807,7 @@ html, body {
 
 @media (max-width: 640px) {
   .stage {
-    padding: 24px 16px 80px;
+    padding: 24px 16px 90px;
     gap: 18px;
   }
   .gallery {
@@ -825,8 +820,26 @@ html, body {
     aspect-ratio: 16 / 9;
   }
   .envelope-wrap {
-    width: 220px;
-    height: 145px;
+    width: 280px;
+    height: 185px;
+  }
+  .envelope.back {
+    border-radius: 6px;
+  }
+  .seal {
+    width: 36px;
+    height: 36px;
+  }
+  .seal::after {
+    font-size: 1.2rem;
+  }
+  .letter-content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    padding: 20px 16px 16px;
+  }
+  .letter-content p {
+    margin: 0 0 14px;
   }
   .secret-card {
     padding: 30px 20px;
@@ -907,8 +920,26 @@ html, body {
     padding: 16px 12px 70px;
   }
   .envelope-wrap {
-    width: 180px;
-    height: 120px;
+    width: 220px;
+    height: 145px;
+  }
+  .envelope.back {
+    border-radius: 6px;
+  }
+  .seal {
+    width: 34px;
+    height: 34px;
+  }
+  .seal::after {
+    font-size: 1.1rem;
+  }
+  .letter-content {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    padding: 16px 14px 14px;
+  }
+  .letter-content p {
+    margin: 0 0 12px;
   }
   .gallery-item {
     aspect-ratio: 1;
